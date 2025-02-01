@@ -2,6 +2,7 @@ version: '3.8'
 services:
   viewvly_dev_server:
     container_name: viewvly_dev_server
+    image: node:alpine
     ports:
       - "1337:80"
     environment:
