@@ -2,9 +2,9 @@ version: '3.8'
 services:
   viewvly_dev_server:
     container_name: viewvly_dev_server
-    image: node:alpine
+    build: .
     ports:
-      - "1337:80"
+      - "1337:1337"
     environment:
       - BOT_TOKEN=${BOT_TOKEN}
       - CHAT_ID=${CHAT_ID}
@@ -13,10 +13,4 @@ services:
       - GITHUB_SECRET=${GITHUB_SECRET}
     env_file:
       - .env
-    healthcheck:
-      test: ["CMD", "curl", "--fail", "http://localhost/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 20s
     restart: unless-stopped
