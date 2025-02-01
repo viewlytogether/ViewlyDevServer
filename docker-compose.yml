@@ -4,6 +4,14 @@ services:
     container_name: viewvly_dev_server
     ports:
       - "1337:80"
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - CHAT_ID=${CHAT_ID}
+      - DOMAIN=${DOMAIN}
+      - SERVER_PORT=${SERVER_PORT}
+      - GITHUB_SECRET=${GITHUB_SECRET}
+    env_file:
+      - .env
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost/health"]
       interval: 30s
