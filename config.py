@@ -1,12 +1,12 @@
-TG_TOKEN='123456:ABCDEF'
-TG_SECRET_TOKEN='1234ASDF'
-TG_WEBHOOK_PATH = 'telegram'
-WEBHOOK_URL = ''
-PORT=4567
-GH_WEBHOOKS={
-    "viewlytogether/ViewlyDevServer": {
-      "chat_id": -1001111111,
-      "thread_id": 8,
-      "secret": "123"
-    }
-  }
+import os, json
+
+from dotenv import find_dotenv, load_dotenv
+
+load_dotenv(find_dotenv())
+
+TG_TOKEN = os.getenv('TG_TOKEN')
+TG_SECRET_TOKEN = os.getenv('TG_SECRET_TOKEN')
+TG_WEBHOOK_PATH = os.getenv('TG_WEBHOOK_PATH')
+WEBHOOK_URL = os.getenv('WEBHOOK_URL')
+PORT= os.getenv('PORT')
+GH_WEBHOOKS=json.loads(os.getenv('GH_WEBHOOKS'))

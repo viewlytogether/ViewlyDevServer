@@ -132,3 +132,11 @@ dist
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
+
+# Environments
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
