@@ -1,16 +1,11 @@
-version: '3.8'
+version: "3.9"
+
 services:
-  viewvly_dev_server:
-    container_name: viewvly_dev_server
-    build: .
-    ports:
-      - "1337:1337"
-    environment:
-      - BOT_TOKEN=${BOT_TOKEN}
-      - CHAT_ID=${CHAT_ID}
-      - DOMAIN=${DOMAIN}
-      - SERVER_PORT=${SERVER_PORT}
-      - GITHUB_SECRET=${GITHUB_SECRET}
-    env_file:
-      - .env
-    restart: unless-stopped
+  git-bot:
+    container_name: git-bot
+    working_dir: /git_bot
+    restart: always
+    build:
+        context: .
+        dockerfile: Dockerfile
+    command: sh -c "python main.py"

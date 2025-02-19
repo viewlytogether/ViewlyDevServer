@@ -1,15 +1,12 @@
-FROM node:alpine
+FROM python:alpine
 
-RUN apk add --no-cache python3 make g++
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
 
-WORKDIR /app
-
-COPY package*.json ./
-
-RUN npm install
+WORKDIR /git_bot
 
 COPY . .
 
-EXPOSE 3000
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["npm", "run", "start"]

@@ -1,0 +1,5 @@
+aiogram==3.18.0
+fastapi==0.115.8
+loguru==0.7.0
+multidict==6.1.0
+uvicorn==0.34.0
